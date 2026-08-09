@@ -616,6 +616,68 @@ a:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.project-card {
+  display: grid;
+  border-radius: 32px;
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(139,92,246,0.45);
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.project-copy {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.project-copy h3 {
+  margin: 0;
+}
+
+.project-copy p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(139,92,246,0.95), rgba(34,211,238,0.92));
+  color: #06070b;
+  font-weight: 700;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
 .service-card {
   padding: 2rem;
   border-radius: 28px;
@@ -1096,32 +1158,34 @@ a:focus-visible {
 
 @media (max-width: 980px) {
   .site-nav {
-    position: fixed;
-    inset: 0;
-    z-index: 95;
-    padding: 6rem 1.5rem 2rem;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
-    background: rgba(8,9,13,0.96);
-    backdrop-filter: blur(24px);
-    transform: translateX(100%);
-    transition: transform 0.35s ease;
+    position: static;
+    inset: auto;
+    z-index: auto;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    background: transparent;
+    backdrop-filter: none;
+    transform: none;
+    transition: none;
+    width: 100%;
   }
 
   .site-nav.open {
-    transform: translateX(0);
+    transform: none;
   }
 
   .nav-list {
-    flex-direction: column;
-    width: 100%;
-    gap: 1rem;
+    flex-direction: row;
+    width: auto;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
 
   .nav-cta {
-    width: 100%;
-    justify-content: center;
+    width: auto;
+    justify-content: flex-start;
   }
 
   .nav-toggle {
@@ -1181,6 +1245,10 @@ a:focus-visible {
 }
 
 @media (max-width: 640px) {
+  .site-nav {
+    display: none;
+  }
+
   .site-header {
     padding: 0.8rem 0;
   }
