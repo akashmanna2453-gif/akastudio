@@ -622,6 +622,16 @@ a:focus-visible {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
+.more-projects {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.more-projects .button {
+  min-width: 200px;
+}
+
 .project-card {
   display: grid;
   border-radius: 32px;
