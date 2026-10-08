@@ -181,7 +181,7 @@ function initBgParallax() {
   }
 
   function updateBg() {
-    const depth = 0.12; // smaller = subtler movement
+    const depth = 0.12; // smaller = subtler movement of anything
     const y = Math.round(lastScroll * depth);
     bgVideo.style.transform = `translate3d(0, ${y}px, 0) scale(1.02)`;
     ticking = false;
